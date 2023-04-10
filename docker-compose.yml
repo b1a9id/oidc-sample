@@ -6,11 +6,11 @@ services:
     tty: true
     stdin_open: true
     ports:
-      - "18080:8080" # 8080は被りやすいので別のポートに設定
+      - "18080:8080"
     volumes:
       - ./data/keycloak:/opt/keycloak/data # DB情報等が格納されます
     environment:
-      KEYCLOAK_ADMIN: admin # 管理ユーザーIDを設定
-      KEYCLOAK_ADMIN_PASSWORD: passwd # 管理ユーザーのパスワードを設定
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: passwd
     command:
       - start-dev # 開発モードで起動
