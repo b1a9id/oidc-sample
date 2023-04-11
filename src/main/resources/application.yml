@@ -1,1 +1,19 @@
+odic-sample:
+  host: http:://localhost:8080
+  provider-base-url: ${odic-sample.host}/realms/demo/protocol/openid-connect
 
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            authorization-uri: ${odic-sample.provider-base-url}/auth
+            token-uri: ${odic-sample.provider-base-url}/token
+        registration:
+          keycloak:
+            client-id: oidc-sample-client
+            client-secret: ${CLIENT_SECRET}
+            redirect-uri: http://localhost:8080/api/home
+            authorization-grant-type: AUTHORIZATION_CODE
